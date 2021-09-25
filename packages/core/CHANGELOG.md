@@ -1,5 +1,31 @@
 # xstate
 
+## 4.26.0
+
+### Minor Changes
+
+- [#2676](https://github.com/statelyai/xstate/pull/2676) [`1ff4f7976`](https://github.com/statelyai/xstate/commit/1ff4f797653bdf58eb2c3a7e27aeae24cf4dd2b8) Thanks [@davidkpiano](https://github.com/davidkpiano)! - The `description` property is a new top-level property for state nodes and transitions, that lets you provide text descriptions:
+
+  ```ts
+  const machine = createMachine({
+    // ...
+    states: {
+      active: {
+        // ...
+        description: 'The task is in progress',
+        on: {
+          DEACTIVATE: {
+            // ...
+            description: 'Deactivates the task'
+          }
+        }
+      }
+    }
+  });
+  ```
+
+  Future Stately tooling will use the `description` to render automatically generated documentation, type hints, and enhancements to visual tools.
+
 ## 4.25.0
 
 ### Minor Changes
